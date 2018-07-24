@@ -1,0 +1,7 @@
+# This is a folder to share anything onto the ubuntu machine without
+# it being tracked in SCM
+
+#ignore everything in this folder
+*
+#except this file
+!.gitignore

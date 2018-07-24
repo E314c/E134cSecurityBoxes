@@ -1,0 +1,6 @@
+---
+# Doesn't seem to affect settings _after_ ubuntu install
+- name: Keyboard to GB via /etc/default/keyboard
+  copy:
+    src: ../files/keyboard
+    dest: "/etc/default/keyboard"

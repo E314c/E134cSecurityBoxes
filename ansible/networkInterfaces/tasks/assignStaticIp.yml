@@ -1,0 +1,8 @@
+- name: Set eth1 IPv4 address
+  interfaces_file:
+    dest: /etc/network/interfaces.d/eth1.cfg
+    iface: eth1
+    option: mtu
+    value: 8000
+    backup: yes
+    state: present

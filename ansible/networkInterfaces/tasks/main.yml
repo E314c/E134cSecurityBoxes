@@ -1,0 +1,5 @@
+---
+- name: set up the /etc/hosts file
+  copy:
+    src: ../files/etcHosts
+    dest: "/etc/hosts"

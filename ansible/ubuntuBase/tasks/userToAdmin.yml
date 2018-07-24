@@ -1,0 +1,8 @@
+---
+- name: add 'vagrant' to 'admin' group
+# so that they can install programs in ubuntu gui
+  user:
+    user: vagrant
+    groups:
+      - admin
+    append: yes
