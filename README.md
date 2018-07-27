@@ -4,6 +4,10 @@
 - [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 - [Vagrant](https://www.vagrantup.com/downloads.html)
 
+## Current problems
+- the damned `kali` image won't upload to vagrant cloud
+  - So you can't just `vagrant up`. Sorry :(
+
 ## Security concerns
 Metasploitable is designed to be vulnerable and should not be network accessible.
 Unfortunately, Vagrant requires that the first interface be a NAT and it will port forward a localhost port into the machine to perform it's setup and configuration.
@@ -27,3 +31,8 @@ All other machines will have internet access due to the NAT router. You can disa
 This box system will include a number of demos, which can be see in the `/demoScripts` of this repository.
 This folder is also mounted as `/demoScripts` within the kali box so you have access to them.
 More demos will be added over time!
+
+## Shared folders.
+Both the __ubuntu__ and __kali__ instances have folders that are shared between the host OS and the VM.
+On the host machine they are the `./ubuntuFiles/` and `./kaliFiles/` directories.
+Within the respective machines they will be mounted on `/hostShare`
