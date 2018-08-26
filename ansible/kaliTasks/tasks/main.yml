@@ -1,0 +1,5 @@
+---
+- name: install gcc-multilib
+  apt:
+    name: gcc-multilib
+    state: present

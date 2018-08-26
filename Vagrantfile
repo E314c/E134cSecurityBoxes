@@ -22,6 +22,20 @@ Vagrant.configure("2") do |config|
         kali.vm.synced_folder "./kaliFiles", "/hostShare"
         kali.vm.synced_folder "./demoScripts", "/demoScripts"
         kali.vm.synced_folder '.', '/vagrant', disabled: true # disable the default share (Because it's useless to us)
+
+        # --- Using ansible --- #
+        # Move across any files needed on the machine
+        kali.vm.provision "file", source: "./ansible", destination: "/tmp/ansible"
+        kali.vm.provision "shell", inline: "sudo rm -f -r /ansible"
+        kali.vm.provision "shell", inline: "sudo mv /tmp/ansible /"   # Three step just to make sure there's no old ansible stuff in there.
+
+        # Provisioning with ansible (using the guestVM to sort itself out)
+        # I really would rather have this done by having the ubuntu VM contact the Kali VM, but it's difficult
+        kali.vm.provision :ansible_local do |ansible|
+            ansible.provisioning_path = "/ansible"
+            ansible.playbook = "kaliPlaybook.yml"
+            ansible.become = true
+        end
     end
     
     
