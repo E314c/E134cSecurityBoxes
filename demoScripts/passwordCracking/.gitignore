@@ -1,0 +1,4 @@
+# Ignore contents of Hashed files (unless I specifically add them to history)
+*.md5
+*.sha512
+*.phpDefaultHash
